@@ -1,0 +1,19 @@
+.pio/build/xteink_x4/FrameworkArduino/MD5Builder.cpp.o: \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/MD5Builder.cpp \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/HEXBuilder.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/pgmspace.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/Stream.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/newlib/platform_include/stdio.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/Printable.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/MD5Builder.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_system/include/esp_system.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_err.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_compiler.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_attr.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_bit_defs.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_idf_version.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_rom/include/esp_rom_md5.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/HashBuilder.h

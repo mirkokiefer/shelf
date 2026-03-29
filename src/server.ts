@@ -1,3 +1,4 @@
+import { renderRawFramebuffer } from "./raw-endpoint";
 import { Hono } from "hono";
 import { serve } from "@hono/node-server";
 import { renderEinkImage } from "./render";
@@ -39,6 +40,20 @@ app.get("/eink.bmp", async (c) => {
   return new Response(bmp, {
     headers: {
       "Content-Type": "image/png",
+      "Cache-Control": "no-cache",
+    },
+  });
+});
+
+
+// ─── E-ink raw 1-bit framebuffer (for ESP32-C3 direct display) ───
+app.get("/eink.raw", async (c) => {
+  const data = getData();
+  const raw = await renderRawFramebuffer(data);
+  return new Response(raw, {
+    headers: {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": String(raw.length),
       "Cache-Control": "no-cache",
     },
   });

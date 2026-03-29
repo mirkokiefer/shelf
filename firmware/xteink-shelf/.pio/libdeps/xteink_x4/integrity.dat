@@ -1,0 +1,3 @@
+EInkDisplay=symlink://open-x4-sdk/libs/display/EInkDisplay
+InputManager=symlink://open-x4-sdk/libs/hardware/InputManager
+BatteryMonitor=symlink://open-x4-sdk/libs/hardware/BatteryMonitor
