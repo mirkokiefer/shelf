@@ -11,19 +11,19 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
+#include <WiFiClientSecure.h>
 #include <EInkDisplay.h>
 #include <InputManager.h>
 #include <BatteryMonitor.h>
 #include "config.h"
+
 // Arduino Core 3.x + ARDUINO_USB_CDC_ON_BOOT=1: Serial maps to USB CDC
 #define LOG Serial
 
 // ─── Hardware ───
-// X4 pin mapping
 EInkDisplay display(EPD_SCLK, EPD_MOSI, EPD_CS, EPD_DC, EPD_RST, EPD_BUSY);
 InputManager buttons;
 
-// Battery ADC pin (X4 uses GPIO2 with voltage divider)
 #define BATTERY_ADC_PIN 2
 BatteryMonitor battery(BATTERY_ADC_PIN);
 
@@ -33,6 +33,9 @@ static int currentMode = 0;
 static const int NUM_MODES = 3;
 static unsigned long lastRefresh = 0;
 static bool needsRefresh = true;
+
+// Reusable WiFi client for HTTPS (skip cert verification)
+WiFiClientSecure secureClient;
 
 // ─── WiFi ───
 void connectWiFi() {
@@ -58,7 +61,7 @@ void connectWiFi() {
 void setServerMode(const char* mode) {
   HTTPClient http;
   String url = String(SHELF_SERVER_URL) + "/api/data";
-  http.begin(url);
+  http.begin(secureClient, url);
   http.addHeader("Content-Type", "application/json");
   String body = String("{\"mode\":\"") + mode + "\"}";
   int code = http.POST(body);
@@ -66,13 +69,13 @@ void setServerMode(const char* mode) {
   http.end();
 }
 
-// ─── Fetch raw 1-bit framebuffer from server and display ───
+// ─── Fetch raw 1-bit framebuffer and display ───
 bool fetchAndDisplay() {
   String url = String(SHELF_SERVER_URL) + "/eink.raw";
   LOG.printf("Fetching: %s\n", url.c_str());
 
   HTTPClient http;
-  http.begin(url);
+  http.begin(secureClient, url);
   http.setTimeout(15000);
   int httpCode = http.GET();
 
@@ -83,7 +86,7 @@ bool fetchAndDisplay() {
   }
 
   int len = http.getSize();
-  const uint32_t expectedSize = EInkDisplay::BUFFER_SIZE; // 800*480/8 = 48000
+  const uint32_t expectedSize = EInkDisplay::BUFFER_SIZE; // 48000
 
   if (len != (int)expectedSize) {
     LOG.printf("Unexpected size: %d (expected %lu)\n", len, expectedSize);
@@ -91,7 +94,7 @@ bool fetchAndDisplay() {
     return false;
   }
 
-  // Stream directly into the display framebuffer — zero copy!
+  // Stream directly into the display framebuffer
   uint8_t* fb = display.getFrameBuffer();
   WiFiClient* stream = http.getStreamPtr();
   size_t bytesRead = 0;
@@ -109,7 +112,6 @@ bool fetchAndDisplay() {
   http.end();
   LOG.printf("Downloaded %d bytes into framebuffer\n", bytesRead);
 
-  // Refresh the e-paper display
   display.displayBuffer(EInkDisplay::FAST_REFRESH, true);
   LOG.println("Display updated!");
 
@@ -129,13 +131,14 @@ void setup() {
   LOG.println("  Xteink X4 - 480x800");
   LOG.println("================================");
 
-  // Init hardware
   display.begin();
   buttons.begin();
 
   LOG.printf("Battery: %d%%\n", battery.readPercentage());
 
-  // Connect WiFi
+  // Skip TLS certificate verification (we trust our own server)
+  secureClient.setInsecure();
+
   connectWiFi();
 
   if (WiFi.status() == WL_CONNECTED) {
@@ -149,8 +152,7 @@ void setup() {
 void loop() {
   buttons.update();
 
-  // Right = next mode
-  if (buttons.wasPressed(3)) {
+  if (buttons.wasPressed(3)) { // Right
     currentMode = (currentMode + 1) % NUM_MODES;
     LOG.printf("Mode -> %s\n", modes[currentMode]);
     setServerMode(modes[currentMode]);
@@ -158,8 +160,7 @@ void loop() {
     needsRefresh = true;
   }
 
-  // Left = prev mode
-  if (buttons.wasPressed(2)) {
+  if (buttons.wasPressed(2)) { // Left
     currentMode = (currentMode - 1 + NUM_MODES) % NUM_MODES;
     LOG.printf("Mode -> %s\n", modes[currentMode]);
     setServerMode(modes[currentMode]);
@@ -167,13 +168,11 @@ void loop() {
     needsRefresh = true;
   }
 
-  // Confirm = force refresh
-  if (buttons.wasPressed(1)) {
+  if (buttons.wasPressed(1)) { // Confirm
     LOG.println("Force refresh");
     needsRefresh = true;
   }
 
-  // Auto-refresh
   if (millis() - lastRefresh >= REFRESH_INTERVAL_MS) {
     needsRefresh = true;
   }

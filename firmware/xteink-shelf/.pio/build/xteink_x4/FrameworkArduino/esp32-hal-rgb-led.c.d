@@ -4,7 +4,7 @@
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rgb-led.h \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/newlib/platform_include/stdio.h \
- /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/qio_qspi/include/sdkconfig.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/dio_qspi/include/sdkconfig.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_system/include/esp_system.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_err.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_compiler.h \

@@ -7,7 +7,7 @@
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/soc/esp32c3/include/soc/soc.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_assert.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/newlib/platform_include/assert.h \
- /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/qio_qspi/include/sdkconfig.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/dio_qspi/include/sdkconfig.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_bit_defs.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/soc/esp32c3/register/soc/reg_base.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h \

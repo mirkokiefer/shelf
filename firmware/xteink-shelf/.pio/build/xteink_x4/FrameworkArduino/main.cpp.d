@@ -2,7 +2,7 @@
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/freertos/config/include/freertos/FreeRTOSConfig.h \
- /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/qio_qspi/include/sdkconfig.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/dio_qspi/include/sdkconfig.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/newlib/platform_include/assert.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/freertos/config/riscv/include/freertos/FreeRTOSConfig_arch.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/freertos/FreeRTOS-Kernel/include/freertos/projdefs.h \

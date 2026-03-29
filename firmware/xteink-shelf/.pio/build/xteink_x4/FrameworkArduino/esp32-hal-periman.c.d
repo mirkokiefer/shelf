@@ -1,7 +1,7 @@
 .pio/build/xteink_x4/FrameworkArduino/esp32-hal-periman.c.o: \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-periman.c \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-log.h \
- /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/qio_qspi/include/sdkconfig.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/dio_qspi/include/sdkconfig.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_timer/include/esp_timer.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/newlib/platform_include/stdio.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/esp_common/include/esp_err.h \

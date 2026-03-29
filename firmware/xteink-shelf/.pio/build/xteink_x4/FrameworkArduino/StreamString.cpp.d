@@ -2,7 +2,7 @@
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/StreamString.cpp \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/newlib/platform_include/stdio.h \
- /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/qio_qspi/include/sdkconfig.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/dio_qspi/include/sdkconfig.h \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/freertos/config/include/freertos/FreeRTOSConfig.h \

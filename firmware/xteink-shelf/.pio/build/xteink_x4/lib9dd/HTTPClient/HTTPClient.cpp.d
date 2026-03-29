@@ -4,7 +4,7 @@
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/Stream.h \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
  /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/include/newlib/platform_include/stdio.h \
- /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/qio_qspi/include/sdkconfig.h \
+ /home/user/.platformio/packages/framework-arduinoespressif32-libs/esp32c3/dio_qspi/include/sdkconfig.h \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/pgmspace.h \
  /home/user/.platformio/packages/framework-arduinoespressif32/cores/esp32/Printable.h \
