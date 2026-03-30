@@ -1,3 +1,4 @@
-EInkDisplay=symlink://open-x4-sdk/libs/display/EInkDisplay
 InputManager=symlink://open-x4-sdk/libs/hardware/InputManager
 BatteryMonitor=symlink://open-x4-sdk/libs/hardware/BatteryMonitor
+h2zero/NimBLE-Arduino@^2.3.0
+EInkDisplay=symlink://open-x4-sdk/libs/display/EInkDisplay
